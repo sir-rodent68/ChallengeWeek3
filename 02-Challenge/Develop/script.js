@@ -2,7 +2,9 @@
 var generateBtn = document.querySelector("#generate");
 
 // an array to assign each letter of the alphabet a number
-var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var alphabetLower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var alphabetUpper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var specialCharacter = [" ", "!", "\"", "#", "$", "%", "&", "\'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
 
 // gives a random number between to given numbers
 function random(min, max) {
@@ -10,22 +12,71 @@ function random(min, max) {
   return num;
 };
 
-// generates a random passord
+// generates a random passord based on user prompts
 function generatePassword() {
   var minLength = prompt("What minimum length would you like for your password?")
   var maxLength = prompt("What maximum length would you like for your password?")
   var passLength = random(minLength, maxLength);
   var password = "";
-  console.clear
+
+  var useLowerCase = confirm("Do you want to have lowercase letters in your password?");
+  var useUpperCase = confirm("Do you want to have uppercase letters in your password?");
+  var useSpecialCharacters = confirm("Do you want to have special characters in your password?");
+
   for (var i = 0; i < passLength; i++) {
-    var passChar = random(0, 34);
-    console.log(passChar)
-    if (passChar > 9) {
-      passChar = passChar - 9;
-      passChar = alphabet[passChar]
+    if (useLowerCase == true) {
+      if (useUpperCase == true) {
+        if (useSpecialCharacters == true) {
+          var charType = random(1, 4)
+
+          if (charType == 1) {
+            var passChar = random(0, 9);
+            password = password + passChar;
+
+          } else if (charType == 2) {
+            var passChar = random(0, 25);
+            passChar = alphabetLower[passChar];
+            password = password + passChar;
+
+          } else if (charType == 3) {
+            var passChar = random(0, 25);
+            passChar = alphabetUpper[passChar];
+            password = password + passChar;
+
+          } else {
+            var passChar = random(0, 32);
+            passChar = specialCharacter[passChar]
+            password = password + passChar
+
+          }
+
+        } else {
+
+        }
+      } else {
+        if (useSpecialCharacter == true) {
+
+        } else {
+
+        }
+      }
+    } else {
+      if (useUpperCase == true){
+        if (useSpecialCharacters == true) {
+
+        } else {
+
+        }
+      } else {
+        if (useSpecialCharacter == true) {
+
+        } else {
+
+        }
+      }
     }
-    console.log(passChar)
-    password = password + passChar;
+    
+
   };
 
   return(password)
