@@ -21,12 +21,12 @@ function generatePassword() {
 
   var useLowerCase = confirm("Do you want to have lowercase letters in your password?");
   var useUpperCase = confirm("Do you want to have uppercase letters in your password?");
-  var useSpecialCharacters = confirm("Do you want to have special characters in your password?");
+  var useSpecialCharacter = confirm("Do you want to have special characters in your password?");
 
   for (var i = 0; i < passLength; i++) {
     if (useLowerCase == true) {
       if (useUpperCase == true) {
-        if (useSpecialCharacters == true) {
+        if (useSpecialCharacter == true) {
           var charType = random(1, 4)
 
           if (charType == 1) {
@@ -45,35 +45,128 @@ function generatePassword() {
 
           } else {
             var passChar = random(0, 32);
-            passChar = specialCharacter[passChar]
-            password = password + passChar
+            passChar = specialCharacter[passChar];
+            password = password + passChar;
 
           }
 
         } else {
+          var charType = random(1, 3)
+
+          if (charType == 1) {
+            var passChar = random(0, 9);
+            password = password + passChar;
+
+          } else if (charType == 2) {
+            var passChar = random(0, 25);
+            passChar = alphabetLower[passChar];
+            password = password + passChar;
+
+          } else {
+            var passChar = random(0, 25);
+            passChar = alphabetUpper[passChar];
+            password = password + passChar;
+
+          }
 
         }
       } else {
         if (useSpecialCharacter == true) {
+          var charType = random(1, 3)
+
+          if (charType == 1) {
+            var passChar = random(0, 9);
+            password = password + passChar;
+
+          } else if (charType == 2) {
+            var passChar = random(0, 25);
+            passChar = alphabetLower[passChar];
+            password = password + passChar;
+
+          } else {
+            var passChar = random(0, 32);
+            passChar = specialCharacter[passChar];
+            password = password + passChar;
+
+          }
 
         } else {
+          var charType = random(1, 2)
+
+          if (charType == 1) {
+            var passChar = random(0, 9);
+            password = password + passChar;
+
+          } else {
+            var passChar = random(0, 25);
+            passChar = alphabetLower[passChar];
+            password = password + passChar;
+
+          }
 
         }
+
       }
+
     } else {
       if (useUpperCase == true){
-        if (useSpecialCharacters == true) {
+        if (useSpecialCharacter == true) {
+          var charType = random(1, 3)
+
+          if (charType == 1) {
+            var passChar = random(0, 9);
+            password = password + passChar;
+
+          } else if (charType == 2) {
+            var passChar = random(0, 25);
+            passChar = alphabetUpper[passChar];
+            password = password + passChar;
+
+          } else {
+            var passChar = random(0, 32);
+            passChar = specialCharacter[passChar];
+            password = password + passChar;
+
+          }
 
         } else {
+          var charType = random(1, 2)
+
+          if (charType == 1) {
+            var passChar = random(0, 9);
+            password = password + passChar;
+
+          } else {
+            var passChar = random(0, 25);
+            passChar = alphabetUpper[passChar];
+            password = password + passChar;
+
+          }
 
         }
       } else {
         if (useSpecialCharacter == true) {
+          var charType = random(1, 2)
+
+          if (charType == 1) {
+            var passChar = random(0, 9);
+            password = password + passChar;
+
+          } else {
+            var passChar = random(0, 32);
+            passChar = specialCharacter[passChar];
+            password = password + passChar;
+
+          }
 
         } else {
+          var passChar = random(0, 9);
+          password = password + passChar;
 
         }
+
       }
+
     }
     
 
