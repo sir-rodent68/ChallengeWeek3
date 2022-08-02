@@ -12,12 +12,14 @@ function random(min, max) {
 
 // generates a random passord
 function generatePassword() {
-  var passLength = random(8, 24);
+  var minLength = prompt("What minimum length would you like for your password?")
+  var maxLength = prompt("What maximum length would you like for your password?")
+  var passLength = random(minLength, maxLength);
   var password = "";
-
+  console.clear
   for (var i = 0; i < passLength; i++) {
-    var passChar = random(0, 35);
-
+    var passChar = random(0, 34);
+    console.log(passChar)
     if (passChar > 9) {
       passChar = passChar - 9;
       passChar = alphabet[passChar]
