@@ -49,13 +49,34 @@ function generatePassword() {
   }
 
   for (var i = 0; i < passLength; i++) {
+      
+  while (true) {
     var charType = random(1, 4);
 
+      if (charType == 1 && useNumber == true) {
+        var insert = random(0, 9);
+        password = password + insert;
+        break;
 
-    while (true) {
-      if (charType == 1 && )
-      break;
-    }
+      } else if (charType == 2 && useLowerCase == true) {
+        var insert = random(0, 25);
+        password = password + alphabetLower[insert];
+        break;
+
+      } else if (charType == 3 && useUpperCase == true) {
+        var insert = random(0, 25);
+        password = password + alphabetUpper[insert];
+        break;
+
+      } else if (charType == 4 && useSpecialCharacter ==true) {
+        var insert = random(0, 32);
+        password = password + specialCharacter[insert];
+        break;
+        
+      };
+
+  };
+    
     
 
   };
