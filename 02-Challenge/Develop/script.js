@@ -14,159 +14,47 @@ function random(min, max) {
 
 // generates a random passord based on user prompts
 function generatePassword() {
-  var minLength = prompt("What minimum length would you like for your password?")
-  var maxLength = prompt("What maximum length would you like for your password?")
+  while (true) {
+    var minLength = prompt("What minimum length would you like for your password?")
+    if (minLength < 8){
+      alert("Please select a number over 8.");
+    } else {
+      break;
+    };
+  }
+  
+  while (true) {
+    var maxLength = prompt("What maximum length would you like for your password?")
+    if (maxLength > 128) {
+      alert("Please select a number under 128.");
+    } else {
+      break;
+    };
+  }
+  
   var passLength = random(minLength, maxLength);
   var password = "";
+  while (true) {
+    var useNumber = confirm("Do you want to have numbers in your password?");
+    var useLowerCase = confirm("Do you want to have lowercase letters in your password?");
+    var useUpperCase = confirm("Do you want to have uppercase letters in your password?");
+    var useSpecialCharacter = confirm("Do you want to have special characters in your password?");
 
-  var useLowerCase = confirm("Do you want to have lowercase letters in your password?");
-  var useUpperCase = confirm("Do you want to have uppercase letters in your password?");
-  var useSpecialCharacter = confirm("Do you want to have special characters in your password?");
+    if (useNumber != true && useLowerCase != true && useUpperCase != true && useSpecialCharacter != true){
+      alert("Please select at least one character type.")
+    } else {
+      break;
+    }
+
+  }
 
   for (var i = 0; i < passLength; i++) {
-    if (useLowerCase == true) {
-      if (useUpperCase == true) {
-        if (useSpecialCharacter == true) {
-          var charType = random(1, 4)
+    var charType = random(1, 4);
 
-          if (charType == 1) {
-            var passChar = random(0, 9);
-            password = password + passChar;
 
-          } else if (charType == 2) {
-            var passChar = random(0, 25);
-            passChar = alphabetLower[passChar];
-            password = password + passChar;
-
-          } else if (charType == 3) {
-            var passChar = random(0, 25);
-            passChar = alphabetUpper[passChar];
-            password = password + passChar;
-
-          } else {
-            var passChar = random(0, 32);
-            passChar = specialCharacter[passChar];
-            password = password + passChar;
-
-          }
-
-        } else {
-          var charType = random(1, 3)
-
-          if (charType == 1) {
-            var passChar = random(0, 9);
-            password = password + passChar;
-
-          } else if (charType == 2) {
-            var passChar = random(0, 25);
-            passChar = alphabetLower[passChar];
-            password = password + passChar;
-
-          } else {
-            var passChar = random(0, 25);
-            passChar = alphabetUpper[passChar];
-            password = password + passChar;
-
-          }
-
-        }
-      } else {
-        if (useSpecialCharacter == true) {
-          var charType = random(1, 3)
-
-          if (charType == 1) {
-            var passChar = random(0, 9);
-            password = password + passChar;
-
-          } else if (charType == 2) {
-            var passChar = random(0, 25);
-            passChar = alphabetLower[passChar];
-            password = password + passChar;
-
-          } else {
-            var passChar = random(0, 32);
-            passChar = specialCharacter[passChar];
-            password = password + passChar;
-
-          }
-
-        } else {
-          var charType = random(1, 2)
-
-          if (charType == 1) {
-            var passChar = random(0, 9);
-            password = password + passChar;
-
-          } else {
-            var passChar = random(0, 25);
-            passChar = alphabetLower[passChar];
-            password = password + passChar;
-
-          }
-
-        }
-
-      }
-
-    } else {
-      if (useUpperCase == true){
-        if (useSpecialCharacter == true) {
-          var charType = random(1, 3)
-
-          if (charType == 1) {
-            var passChar = random(0, 9);
-            password = password + passChar;
-
-          } else if (charType == 2) {
-            var passChar = random(0, 25);
-            passChar = alphabetUpper[passChar];
-            password = password + passChar;
-
-          } else {
-            var passChar = random(0, 32);
-            passChar = specialCharacter[passChar];
-            password = password + passChar;
-
-          }
-
-        } else {
-          var charType = random(1, 2)
-
-          if (charType == 1) {
-            var passChar = random(0, 9);
-            password = password + passChar;
-
-          } else {
-            var passChar = random(0, 25);
-            passChar = alphabetUpper[passChar];
-            password = password + passChar;
-
-          }
-
-        }
-      } else {
-        if (useSpecialCharacter == true) {
-          var charType = random(1, 2)
-
-          if (charType == 1) {
-            var passChar = random(0, 9);
-            password = password + passChar;
-
-          } else {
-            var passChar = random(0, 32);
-            passChar = specialCharacter[passChar];
-            password = password + passChar;
-
-          }
-
-        } else {
-          var passChar = random(0, 9);
-          password = password + passChar;
-
-        }
-
-      }
-
+    while (true) {
+      if (charType == 1 && )
+      break;
     }
     
 
